@@ -7,11 +7,11 @@ export default class Login extends React.Component {
     }
 
     login() {
-        console.log('Login clicked!');
+        console.log('%c Login clicked!', 'background: #393939; color: #bada55');
     }
 
     signup() {
-        console.log('Signup clicked!');
+        console.log('%c Signup clicked!', 'background: #393939; color: #bada55');
     }
 
     render() {
