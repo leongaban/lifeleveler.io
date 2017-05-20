@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export default class Login extends React.Component {
     constructor(props) {
@@ -10,8 +10,8 @@ export default class Login extends React.Component {
         console.log('%c Login clicked!', 'background: #393939; color: #bada55');
     }
 
-    signup() {
-        console.log('%c Signup clicked!', 'background: #393939; color: #bada55');
+    componentDidMount() {
+        console.log('%c Login componentDidMount', 'background: #393939; color: #bada55');   
     }
 
     render() {
@@ -26,9 +26,6 @@ export default class Login extends React.Component {
                     <ul>
                         <li>
                             <button className="btn-login" onClick={ this.login }>Login</button>
-                        </li>
-                        <li>
-                            <button className="btn-signup" onClick={ this.signup }>Sign Up</button>
                         </li>
                     </ul>
                 </div>
