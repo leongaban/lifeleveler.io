@@ -2,11 +2,5 @@
 ============================================================
 ========================================================= */
 
-// Header
-// @import "../layouts/header";
-
-// Homepage
-@import "../layouts/login";
-
-// Footer
-// @import "../layouts/footer";
+@import "../components/auth";
+@import "../components/common";

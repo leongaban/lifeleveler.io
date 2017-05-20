@@ -18,16 +18,18 @@ export class SignUp extends React.Component {
     render() {
     	const tagline = 'Create a new LifeLeveler account now!';
         return (
-            <section id="login-form">
-                <LifeLevelerBanner tagline={ tagline } />
-                <div className="login-actions">
-                    <ul>
-                        <li>
-                            <button className="btn-login" onClick={ this.signup }>Sign Up</button>
-                        </li>
-                    </ul>
-                </div>
-            </section>
+            <div className="app-bg">
+                <section id="login-form">
+                    <LifeLevelerBanner tagline={ tagline } />
+                    <div className="login-actions">
+                        <ul>
+                            <li>
+                                <button className="btn-login" onClick={ this.signup }>Sign Up</button>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
         );
     }
 }

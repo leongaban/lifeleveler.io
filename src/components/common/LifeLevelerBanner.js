@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const LifeLevelerBanner = (props) => {
     return (
-        <section id="login-form">
+        <section id="login-form" className="lifeleveler-banner">
             <Link to="/">
                 <div className="lifeleveler-logo">
                     <div className="life">LIFE</div>
