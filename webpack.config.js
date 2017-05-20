@@ -14,7 +14,7 @@ module.exports = {
   output: {
     path: dist,
     filename: "lifeleveler.bundle.js",
-    publicPath: "/"
+    publicPath: ""
   },
   module: {
     rules: [
@@ -34,20 +34,15 @@ module.exports = {
     ]
   },
   devServer: {
-    hot: true,
+    hot: false,
     quiet: true,
-    publicPath: "/",
+    publicPath: "",
     contentBase: path.join(__dirname, "dist"),
     compress: true,
     stats: "errors-only",
     open: true
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    // enable HMR globally
-    //
-    new webpack.NamedModulesPlugin(),
-    // prints more readable module names in the browser console on HMR updates
     new HtmlWebpackPlugin({
       title: "LifeLeveler",
       hash: true,
