@@ -2,10 +2,19 @@
   "name": "lifeleveler",
   "version": "0.1.0",
   "description": "Start on the journey to level up in life.",
-  "private": true,
+  "engines": {
+    "node": "7.7.x"
+  },
+  "now": {
+    "engines": {
+      "node": "7.7.x"
+    }
+  },
   "scripts": {
+    "start": "webpack-dev-server --history-api-fallback",
     "dev": "webpack-dev-server --history-api-fallback",
-    "prod": "webpack -p"
+    "prod": "webpack -p",
+    "build": "webpack -p"
   },
   "dependencies": {
     "axios": "^0.16.1",
