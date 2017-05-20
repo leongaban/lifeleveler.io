@@ -1,14 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import LifeLevelerBanner from '../common/LifeLevelerBanner'
 
 const Welcome = () => {
+    const tagline = 'Start on the journey to level up in life.';
     return (
         <section id="login-form">
-            <div className="lifeleveler-logo">
-                <div className="life">LIFE</div>
-                <div className="leveler">LEVELER</div>
-            </div>
-            <h1>Start on the journey to level up in life.</h1>
+            <LifeLevelerBanner tagline={ tagline } />
+            <h1></h1>
             <div className="login-actions">
                 <ul>
                     <li>

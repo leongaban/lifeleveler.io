@@ -1,4 +1,5 @@
 import React from 'react'
+import LifeLevelerBanner from '../common/LifeLevelerBanner'
 
 export default class Login extends React.Component {
     constructor(props) {
@@ -15,13 +16,10 @@ export default class Login extends React.Component {
     }
 
     render() {
+        const tagline = 'Sign in below';
         return (
             <section id="login-form">
-                <div className="lifeleveler-logo">
-                    <div className="life">LIFE</div>
-                    <div className="leveler">LEVELER</div>
-                </div>
-                <h1>Start on the journey to level up in life.</h1>
+                <LifeLevelerBanner tagline={ tagline } />
                 <div className="login-actions">
                     <ul>
                         <li>
