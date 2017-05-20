@@ -1,0 +1,17 @@
+{
+  "name": "lifeleveler.io",
+  "description": "",
+  "main": "",
+  "authors": [
+    "leongaban <leongaban@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/leongaban/lifeleveler_react",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

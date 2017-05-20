@@ -1,0 +1,44 @@
+/*==========================================================
+Master Stylesheet 0.2.4
+============================================================
+
+stylesheets/
+|-- vendors/
+|   |-- reset                   # Eric Meyer's reset v2.0.0
+|
+|-- modules/                    # Partials
+|   |-- _base                   # Imports all the modules
+|       |-- _animation              # CSS animations
+|       |-- _colors                 # Colors
+|       |-- _fonts                  # Fonts
+|       |-- _mixins                 # Imports all mixins
+|
+|   |-- _defaults               # Global Defaults
+|   |-- _buttons                # Buttons styles
+|   |-- _fonts                  # Fonts styles
+|   |-- _inputs                 # Inputs styles
+|   |-- _layout                 # Layout Views
+|       |-- header
+|       |-- home
+|       |-- footer
+|       ...
+|
+|   |-- _svg                    # SVG background images
+|   |-- _queries                # Reponsive media queries
+|
+|-- vendors/
+|   |-- normalize               # Nicolas Gallagher v3.0.2
+|   ...
+|
+`-- main_web                    # Primary Sass module
+*/
+
+@import "sass/vendors/normalize";    // Normalize stylesheet
+@import "sass/vendors/reset";        // Reset stylesheet
+@import "sass/modules/base";         // Load base files
+@import "sass/modules/defaults";     // Defaults elements
+@import "sass/modules/inputs";       // Inputs & Selects
+@import "sass/modules/buttons";      // Buttons
+@import "sass/modules/layout";       // Load Layouts
+@import "sass/modules/svg";          // Load SVG
+@import "sass/modules/queries";      // Media Queries
