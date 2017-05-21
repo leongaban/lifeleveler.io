@@ -2,6 +2,16 @@ import React from 'react'
 import LifeLevelerBanner from '../common/LifeLevelerBanner'
 import firebase from 'firebase'
 
+const config = {
+    apiKey: "AIzaSyDMfCUnH-4fWti0uPUvBFwPlWCFZCdHDPw",
+    authDomain: "lifeleveler-65857.firebaseapp.com",
+    databaseURL: "https://lifeleveler-65857.firebaseio.com",
+    projectId: "lifeleveler-65857",
+    storageBucket: "lifeleveler-65857.appspot.com",
+    messagingSenderId: "886791378526"
+};
+firebase.initializeApp(config);
+
 export class SignUp extends React.Component {
 	constructor(props) {
         super(props)
@@ -25,7 +35,7 @@ export class SignUp extends React.Component {
     }
 
     render() {
-    	const tagline = 'Create a new LifeLeveler account now!';
+    	const tagline = 'Create a new LifeLeveler account now and start on the journey to level up in life.';
         return (
             <div className="app-bg">
                 <section id="login-form">
