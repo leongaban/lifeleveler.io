@@ -1,7 +1,16 @@
 import React from 'react'
-import LifeLevelerBanner from '../common/LifeLevelerBanner'
 import firebase from 'firebase'
+import { not } from 'ramda'
+import LifeLevelerBanner from '../common/LifeLevelerBanner'
+import { validateEmail } from '../../factories/utility'
 
+const displayError = (type) => {
+    if (type === 'email') {
+
+    }
+};
+
+// Firebase config (ToDo: extract into own file)
 const config = {
     apiKey: "AIzaSyDMfCUnH-4fWti0uPUvBFwPlWCFZCdHDPw",
     authDomain: "lifeleveler-65857.firebaseapp.com",
@@ -16,8 +25,9 @@ export class SignUp extends React.Component {
 	constructor(props) {
         super(props)
         this.state = {
-            email: '',
-            password: ''
+            email:     { text: '', error: false },
+            password:  { text: '', error: false },
+            password2: { text: '', error: false }
         };
 
         this.handleBlur = this.handleBlur.bind(this);
@@ -43,11 +53,34 @@ export class SignUp extends React.Component {
         const input_type = `input-signup-${type}`;
         const input = document.getElementById(input_type);
         const text = input.value;
-        console.log(' text', text);
+
+        if (type === 'email') {
+            const validEmail = validateEmail(text);
+            const emailError = this.state.email.error;
+
+            not(validEmail)
+                ? this.setState({
+                    email: { error: true }
+                })
+                : this.setState({
+                    email: { error: false }
+                });
+
+            console.log('this.state', this.state);
+        }
+        
     }
 
     render() {
     	const tagline = 'Create a new account to start on the journey of leveing up in life.';
+
+        const inputClasser = (type) => {
+            switch(type) {
+                case 'email':     return this.state.email.error     ? 'error' : ''; break;
+                case 'password':  return this.state.email.password  ? 'error' : ''; break;
+                case 'password2': return this.state.email.password2 ? 'error' : ''; break;
+            }            
+        };
 
         return (
             <div className="app-bg">
@@ -59,6 +92,7 @@ export class SignUp extends React.Component {
                                 <input type="text"
                                        id="input-signup-email"
                                        placeholder="email"
+                                       className={ inputClasser('email') }
                                        onBlur={() => this.handleBlur('email')}/>
                             </li>
                             <li>
@@ -71,7 +105,7 @@ export class SignUp extends React.Component {
                                 <input type="password"
                                        id="input-signup-pass2"
                                        name="password2"
-                                       laceholder="confirm password"
+                                       placeholder="confirm password"
                                        onBlur={() => this.handleBlur('pass2')}/>
                             </li>
                             <li>
