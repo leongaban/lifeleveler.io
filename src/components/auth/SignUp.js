@@ -20,15 +20,39 @@ export class SignUp extends React.Component {
         };
 
         this.handleBlur = this.handleBlur.bind(this);
-        this.signup = this.signup.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
         console.log('%cSignUp componentDidMount', 'background: #393939; color: #bada55');
     }
 
-	signup() {
-        console.log('%c Signup clicked!', 'background: #393939; color: #bada55');
+    handleBlur(type) {
+        const input_type = `input-signup-${type}`;
+        const input = document.getElementById(input_type);
+        const text = input.value;
+
+        switch(type) {
+            case 'email':
+                not(validEmail(text))
+                    ? this.setState({ email: { error: true }})
+                    : this.setState({ email: { error: false, text }});
+                break;
+            case 'pass1':
+                not(validPassword(text))
+                    ? this.setState({ pass1: { error: true }})
+                    : this.setState({ pass1: { error: false, text }});
+                break;
+            case 'pass2':
+                if (validPassword(text)) {
+                    this.setState({ pass2: { error: false, text }})
+                }
+                break;
+        }
+    }
+
+    handleSubmit() {
+        console.log('%c handleSubmit', 'background: #393939; color: #bada55');
         const email = this.state.email.text;
         const pass1 = this.state.pass1.text;
         const pass2 = this.state.pass2.text;
@@ -58,30 +82,6 @@ export class SignUp extends React.Component {
         }
     }
 
-    handleBlur(type) {
-        const input_type = `input-signup-${type}`;
-        const input = document.getElementById(input_type);
-        const text = input.value;
-
-        switch(type) {
-            case 'email':
-                not(validEmail(text))
-                    ? this.setState({ email: { error: true }})
-                    : this.setState({ email: { error: false, text }});
-                break;
-            case 'pass1':
-                not(validPassword(text))
-                    ? this.setState({ pass1: { error: true }})
-                    : this.setState({ pass1: { error: false, text }});
-                break;
-            case 'pass2':
-                if (validPassword(text)) {
-                    this.setState({ pass2: { error: false, text }})
-                }
-                break;
-        }
-    }
-
     render() {
     	const tagline = 'Create a new account to start on the journey of leveing up in life.';
         const emailError = this.state.email.error;
@@ -101,46 +101,48 @@ export class SignUp extends React.Component {
                 <section id="login-form">
                     <LifeLevelerBanner tagline={ tagline } />
                     <div className="login-actions">
-                        <ul>
-                            <li>
-                                <InputError on={ emailError } msg={ 'Please enter a valid email.' } />
+                        <form onSubmit={this.handleSubmit}>
+                            <ul>
+                                <li>
+                                    <InputError on={ emailError } msg={ 'Please enter a valid email.' } />
 
-                                <input type="text"
-                                       id="input-signup-email"
-                                       placeholder="email"
-                                       className={inputClasser('email')}
-                                       onChange={() => this.handleBlur('email') }
-                                       onBlur={() => this.handleBlur('email')}/>
-                            </li>
-                            <li>
-                                <InputError
-                                    on={ pass1Error }
-                                    width={ 270 }
-                                    msg={ 'A combination of at least 7 numbers & letters' } />
+                                    <input type="text"
+                                           id="input-signup-email"
+                                           placeholder="email"
+                                           className={inputClasser('email')}
+                                           onChange={() => this.handleBlur('email') }
+                                           onBlur={() => this.handleBlur('email')}/>
+                                </li>
+                                <li>
+                                    <InputError
+                                        on={ pass1Error }
+                                        width={ 270 }
+                                        msg={ 'A combination of at least 7 numbers & letters' } />
 
-                                <input type="password"
-                                       id="input-signup-pass1"
-                                       placeholder="password"
-                                       className={inputClasser('pass1')}
-                                       onChange={() => this.handleBlur('pass1') }
-                                       onBlur={() => this.handleBlur('pass1')}/>
-                            </li>
-                            <li>
-                                <InputError
-                                    on={ pass2Error }
-                                    width={ 140 }
-                                    msg={ this.state.pass2.errorMsg } />
+                                    <input type="password"
+                                           id="input-signup-pass1"
+                                           placeholder="password"
+                                           className={inputClasser('pass1')}
+                                           onChange={() => this.handleBlur('pass1') }
+                                           onBlur={() => this.handleBlur('pass1')}/>
+                                </li>
+                                <li>
+                                    <InputError
+                                        on={ pass2Error }
+                                        width={ 140 }
+                                        msg={ this.state.pass2.errorMsg } />
 
-                                <input type="password"
-                                       id="input-signup-pass2"
-                                       placeholder="confirm password"
-                                       onChange={() => this.handleBlur('pass2') }
-                                       className={inputClasser('pass2')}/>
-                            </li>
-                            <li>
-                                <button className="btn-orange" onClick={ this.signup }>Sign Up</button>
-                            </li>
-                        </ul>
+                                    <input type="password"
+                                           id="input-signup-pass2"
+                                           placeholder="confirm password"
+                                           onChange={() => this.handleBlur('pass2') }
+                                           className={inputClasser('pass2')}/>
+                                </li>
+                                <li>
+                                    <button className="btn-orange">Sign Up</button>
+                                </li>
+                            </ul>
+                        </form>
                     </div>
                 </section>
             </div>
