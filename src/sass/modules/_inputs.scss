@@ -1,6 +1,20 @@
-/* Inputs, Selects, Checkboxes etc...
-============================================================
-========================================================= */
-
 // removes chrome input highlight
 *:focus { outline: 0; }
+
+.validation-error {
+	display: none;
+	position: absolute;
+	top: -25px;
+	padding: 10px;
+	width: 212px;
+	color: white;
+	background: $red;
+	@include rounded(4px);
+
+	.down-arrow {
+		position: absolute;
+		top: 36px;
+		left: 15px;
+		@include triangle(down, 6px, $red);
+	}
+}

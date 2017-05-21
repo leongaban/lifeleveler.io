@@ -2,13 +2,8 @@ import React from 'react'
 import firebase from 'firebase'
 import { not } from 'ramda'
 import LifeLevelerBanner from '../common/LifeLevelerBanner'
+import InputError from '../common/InputError'
 import { validateEmail } from '../../factories/utility'
-
-const displayError = (type) => {
-    if (type === 'email') {
-
-    }
-};
 
 // Firebase config (ToDo: extract into own file)
 const config = {
@@ -33,6 +28,11 @@ export class SignUp extends React.Component {
         this.handleBlur = this.handleBlur.bind(this);
     }
 
+    componentDidMount() {
+        console.log('%cSignUp componentDidMount', 'background: #393939; color: #bada55');
+        console.log('firebase', firebase);
+    }
+
 	signup() {
         console.log('%c Signup clicked!', 'background: #393939; color: #bada55');
 
@@ -42,11 +42,6 @@ export class SignUp extends React.Component {
             const errorMessage = error.message;
             // ...
         });
-    }
-
-    componentDidMount() {
-        console.log('%cSignUp componentDidMount', 'background: #393939; color: #bada55');
-        console.log('firebase', firebase);
     }
 
     handleBlur(type) {
@@ -59,12 +54,8 @@ export class SignUp extends React.Component {
             const emailError = this.state.email.error;
 
             not(validEmail)
-                ? this.setState({
-                    email: { error: true }
-                })
-                : this.setState({
-                    email: { error: false }
-                });
+                ? this.setState({ email: { error: true }})
+                : this.setState({ email: { error: false }});
 
             console.log('this.state', this.state);
         }
@@ -79,7 +70,7 @@ export class SignUp extends React.Component {
                 case 'email':     return this.state.email.error     ? 'error' : ''; break;
                 case 'password':  return this.state.email.password  ? 'error' : ''; break;
                 case 'password2': return this.state.email.password2 ? 'error' : ''; break;
-            }            
+            }
         };
 
         return (
@@ -89,6 +80,7 @@ export class SignUp extends React.Component {
                     <div className="login-actions">
                         <ul>
                             <li>
+                                <InputError on={true} msg={'Please enter a valid email.'} />
                                 <input type="text"
                                        id="input-signup-email"
                                        placeholder="email"
