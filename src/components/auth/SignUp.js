@@ -7,8 +7,7 @@ import { validEmail, validPassword } from '../../util/validation'
 const createUser = (state) => {
     const email = state.email.text;
     const password = state.pass1.text;
-
-    console.log('createUser', state);
+    console.log('createUser!', state);
 };
 
 export class SignUp extends React.Component {
@@ -29,10 +28,34 @@ export class SignUp extends React.Component {
     }
 
 	signup() {
-        // console.log('%c Signup clicked!', 'background: #393939; color: #bada55');
+        console.log('%c Signup clicked!', 'background: #393939; color: #bada55');
+        const email = this.state.email.text;
         const pass1 = this.state.pass1.text;
         const pass2 = this.state.pass2.text;
-        equals(pass1, pass2) ? createUser(this.state) : this.setState({ pass2: { error: true, errorMsg: 'Passwords must match' }});
+
+        const setPass2Err = (text) => {
+            this.setState({
+                pass2: {
+                    text,
+                    error: true,
+                    errorMsg: 'Passwords must match'
+                }
+            });
+        };
+
+        const checkPasswords = () => {
+            if (validPassword(pass1) && validPassword(pass2)) {
+                equals(pass1, pass2) ? createUser(this.state) : setPass2Err(pass2);
+            } else {
+                this.setState({ pass1: { error: true }});
+            }
+        };
+
+        if (validEmail(email)) {
+            checkPasswords();
+        } else {
+            this.setState({ email: { error: true }});
+        }
     }
 
     handleBlur(type) {

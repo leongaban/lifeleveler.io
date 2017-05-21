@@ -1,4 +1,5 @@
 import React from 'react'
+
 const displayHandler = (props) => {
 	let classString = 'validation-error';
     classString = props.on ? `${classString} show` : classString;
