@@ -12,13 +12,27 @@
 </head>
 <body>
 	<div id="lifeleveler"></div>
+
+	<script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
 	<script>
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-27583223-6', 'auto');
-	ga('send', 'pageview');
+		var config = {
+			apiKey: "AIzaSyDMfCUnH-4fWti0uPUvBFwPlWCFZCdHDPw",
+			authDomain: "lifeleveler-65857.firebaseapp.com",
+			databaseURL: "https://lifeleveler-65857.firebaseio.com",
+			projectId: "lifeleveler-65857",
+			storageBucket: "lifeleveler-65857.appspot.com",
+			messagingSenderId: "886791378526"
+		};
+		firebase.initializeApp(config);
+	</script>
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-27583223-6', 'auto');
+		ga('send', 'pageview');
 	</script>
 </body>
 </html>
