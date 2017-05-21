@@ -35,7 +35,7 @@ export class SignUp extends React.Component {
     }
 
     render() {
-    	const tagline = 'Create a new LifeLeveler account now and start on the journey to level up in life.';
+    	const tagline = 'Create a new account to start on the journey of leveing up in life.';
         return (
             <div className="app-bg">
                 <section id="login-form">
