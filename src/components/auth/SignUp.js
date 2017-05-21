@@ -38,9 +38,7 @@ export class SignUp extends React.Component {
                     : this.setState({ pass1: { error: false, text }});
                 break;
             case 'pass2':
-                if (validPassword(text)) {
-                    this.setState({ pass2: { error: false, text }})
-                }
+                if (validPassword(text)) this.setState({ pass2: { error: false, text }});
                 break;
         }
     }
@@ -54,16 +52,12 @@ export class SignUp extends React.Component {
 
         const setPass2Err = (text) => {
             this.setState({
-                pass2: {
-                    text,
-                    error: true,
-                    errorMsg: 'Passwords must match'
-                }
+                pass2: { text, error: true, errorMsg: 'Passwords must match' }
             });
         };
 
         const createUser = (email, password) => {
-            console.log('createUser and redirect to login with msg!');
+            console.log('createUser and redirect to login with message!');
         };
 
         const checkPasswords = () => {
@@ -74,18 +68,14 @@ export class SignUp extends React.Component {
             }
         };
 
-        if (validEmail(email)) {
-            checkPasswords();
-        } else {
-            this.setState({ email: { error: true }});
-        }
+        validEmail(email) ? checkPasswords() : this.setState({ email: { error: true }});
     }
 
     render() {
-    	const tagline = 'Create a new account to start on the journey of leveing up in life.';
+    	const tagline = 'Create a new account to start on the journey of leveling up in life.';
         const emailError = this.state.email.error;
         const pass1Error = this.state.pass1.error;
-        const pass2Error = this.state.pass2.error;
+        const pass2Error = this.state.pass2.error; 
 
         const inputClasser = (type) => {
             switch(type) {
