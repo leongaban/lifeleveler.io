@@ -3,7 +3,7 @@ import firebase from 'firebase'
 import { not } from 'ramda'
 import LifeLevelerBanner from '../common/LifeLevelerBanner'
 import InputError from '../common/InputError'
-import { validateEmail } from '../../factories/utility'
+import { validEmail, validPassword } from '../../factories/utility'
 
 // Firebase config (ToDo: extract into own file)
 const config = {
@@ -20,9 +20,9 @@ export class SignUp extends React.Component {
 	constructor(props) {
         super(props)
         this.state = {
-            email:     { text: '', error: false },
-            password:  { text: '', error: false },
-            password2: { text: '', error: false }
+            email: { text: '', error: false },
+            pass1: { text: '', error: false },
+            pass2: { text: '', error: false }
         };
 
         this.handleBlur = this.handleBlur.bind(this);
@@ -49,27 +49,38 @@ export class SignUp extends React.Component {
         const input = document.getElementById(input_type);
         const text = input.value;
 
-        if (type === 'email') {
-            const validEmail = validateEmail(text);
-            const emailError = this.state.email.error;
-
-            not(validEmail)
-                ? this.setState({ email: { error: true }})
-                : this.setState({ email: { error: false }});
-
-            console.log('this.state', this.state);
+        switch(type) {
+            case 'email':
+                not(validEmail(text))
+                    ? this.setState({ email: { error: true }})
+                    : this.setState({ email: { error: false }});
+                break;
+            case 'pass1':
+                console.log('not(validPassword(text))', not(validPassword(text)));
+                not(validPassword(text))
+                    ? this.setState({ pass1: { error: true }})
+                    : this.setState({ pass1: { error: false }});
+                break;
+            case 'pass2':
+                not(validPassword(text))
+                    ? this.setState({ pass2: { error: true }})
+                    : this.setState({ pass2: { error: false }});
+                break;
         }
-        
+
+        console.log('this.state', this.state);
     }
 
     render() {
     	const tagline = 'Create a new account to start on the journey of leveing up in life.';
+        const emailError = this.state.email.error;
+        const pass1Error = this.state.pass1.error;
 
         const inputClasser = (type) => {
             switch(type) {
-                case 'email':     return this.state.email.error     ? 'error' : ''; break;
-                case 'password':  return this.state.email.password  ? 'error' : ''; break;
-                case 'password2': return this.state.email.password2 ? 'error' : ''; break;
+                case 'email': return this.state.email.error ? 'error' : ''; break;
+                case 'pass1': return this.state.pass1.error ? 'error' : ''; break;
+                case 'pass2': return this.state.pass2.error ? 'error' : ''; break;
             }
         };
 
@@ -80,24 +91,32 @@ export class SignUp extends React.Component {
                     <div className="login-actions">
                         <ul>
                             <li>
-                                <InputError on={true} msg={'Please enter a valid email.'} />
+                                <InputError on={ emailError } msg={ 'Please enter a valid email.' } />
+                                
                                 <input type="text"
                                        id="input-signup-email"
                                        placeholder="email"
-                                       className={ inputClasser('email') }
+                                       className={inputClasser('email')}
+                                       onChange={() => this.handleBlur('email') }
                                        onBlur={() => this.handleBlur('email')}/>
                             </li>
                             <li>
+                                <InputError
+                                    on={ pass1Error }
+                                    width={ 430 }
+                                    msg={ 'A combination of at least 6 numbers, letters and punctuation like ! and &.' } />
+
                                 <input type="password"
                                        id="input-signup-pass1"
                                        placeholder="password"
+                                       className={inputClasser('pass1')}
                                        onBlur={() => this.handleBlur('pass1')}/>
                             </li>
                             <li>
                                 <input type="password"
                                        id="input-signup-pass2"
-                                       name="password2"
                                        placeholder="confirm password"
+                                       className={inputClasser('pass2')}
                                        onBlur={() => this.handleBlur('pass2')}/>
                             </li>
                             <li>
