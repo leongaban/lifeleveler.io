@@ -5,7 +5,7 @@ export const validEmail = (email) => {
     return regx.test(email);
 };
 
-export const validPassword = (password) => password.match(/^(?=\D*\d)(?=[^a-zA-Z]*[a-zA-Z])\S{6,}$/);
+export const validPassword = (password) => password.match(/^(?=\D*\d)(?=[^a-zA-Z]*[a-zA-Z])\S{7,}$/);
 
 export const notEmpty = compose(not, isEmpty);
 

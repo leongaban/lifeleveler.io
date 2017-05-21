@@ -128,7 +128,7 @@ export class SignUp extends React.Component {
                                 <InputError
                                     on={ pass1Error }
                                     width={ 270 }
-                                    msg={ 'A combination of at least 6 numbers & letters' } />
+                                    msg={ 'A combination of at least 7 numbers & letters' } />
 
                                 <input type="password"
                                        id="input-signup-pass1"
