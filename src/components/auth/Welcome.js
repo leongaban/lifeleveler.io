@@ -18,11 +18,11 @@ const Welcome = () => {
                             <input type="password" placeholder="password"/>
                         </li>
                         <li>
-                            <button className="btn-login">Login</button>
+                            <button className="btn-orange">Login</button>
                         </li>
                         <li>
                             <Link to="/signup">
-                                <button className="btn-signup">Sign Up</button>
+                                <button className="btn-gray">Sign Up</button>
                             </Link>
                         </li>
                         <li>

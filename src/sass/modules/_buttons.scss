@@ -1,6 +1,14 @@
-/* Buttons
-============================================================
-========================================================= */
+.btn-orange {
+	background: $orange;
+	&:hover { background: lighten($orange, 10%); }
+	&:active { background: darken($orange, 20%); }
+}
+
+.btn-gray {
+	background: lighten($gray, 10%);
+	&:hover { background: lighten($gray, 20%); }
+	&:active { background: darken($gray, 10%); }
+}
 
 // button:disabled {
 //     background: $gray;

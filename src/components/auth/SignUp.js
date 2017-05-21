@@ -15,8 +15,10 @@ firebase.initializeApp(config);
 export class SignUp extends React.Component {
 	constructor(props) {
         super(props)
-        this.state = {};
-        console.log('firebase', firebase);
+        this.state = {
+            email: '',
+            password: ''
+        };
     }
 
 	signup() {
@@ -31,7 +33,8 @@ export class SignUp extends React.Component {
     }
 
     componentDidMount() {
-        console.log('%c SignUp componentDidMount', 'background: #393939; color: #bada55');
+        console.log('%cSignUp componentDidMount', 'background: #393939; color: #bada55');
+        console.log('firebase', firebase);
     }
 
     render() {
@@ -43,7 +46,13 @@ export class SignUp extends React.Component {
                     <div className="login-actions">
                         <ul>
                             <li>
-                                <button className="btn-login" onClick={ this.signup }>Sign Up</button>
+                                <input type="text" placeholder="email"/>
+                            </li>
+                            <li>
+                                <input type="password" placeholder="password"/>
+                            </li>
+                            <li>
+                                <button className="btn-orange" onClick={ this.signup }>Sign Up</button>
                             </li>
                         </ul>
                     </div>
