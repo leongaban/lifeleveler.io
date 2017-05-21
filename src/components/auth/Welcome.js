@@ -12,10 +12,10 @@ const Welcome = () => {
                 <div className="login-actions">
                     <ul>
                         <li>
-                            <input type="text" placeholder="email"/>
+                            <input type="text" name="email" placeholder="email"/>
                         </li>
                         <li>
-                            <input type="password" placeholder="password"/>
+                            <input type="password" name="password" placeholder="password"/>
                         </li>
                         <li>
                             <button className="btn-orange">Login</button>

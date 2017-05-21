@@ -19,6 +19,8 @@ export class SignUp extends React.Component {
             email: '',
             password: ''
         };
+
+        this.handleBlur = this.handleBlur.bind(this);
     }
 
 	signup() {
@@ -37,8 +39,16 @@ export class SignUp extends React.Component {
         console.log('firebase', firebase);
     }
 
+    handleBlur(e) {
+        const email_input = document.getElementById("input-signup-email");
+        const text = email_input.value;
+        console.log('email_input', email_input);
+        console.log(' text', text);
+    }
+
     render() {
     	const tagline = 'Create a new account to start on the journey of leveing up in life.';
+
         return (
             <div className="app-bg">
                 <section id="login-form">
@@ -46,10 +56,13 @@ export class SignUp extends React.Component {
                     <div className="login-actions">
                         <ul>
                             <li>
-                                <input type="text" placeholder="email"/>
+                                <input type="text" id="input-signup-email" placeholder="email" onBlur={this.handleBlur}/>
                             </li>
                             <li>
                                 <input type="password" placeholder="password"/>
+                            </li>
+                            <li>
+                                <input type="password" name="password2" placeholder="confirm password"/>
                             </li>
                             <li>
                                 <button className="btn-orange" onClick={ this.signup }>Sign Up</button>
