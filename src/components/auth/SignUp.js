@@ -39,10 +39,10 @@ export class SignUp extends React.Component {
         console.log('firebase', firebase);
     }
 
-    handleBlur(e) {
-        const email_input = document.getElementById("input-signup-email");
-        const text = email_input.value;
-        console.log('email_input', email_input);
+    handleBlur(type) {
+        const input_type = `input-signup-${type}`;
+        const input = document.getElementById(input_type);
+        const text = input.value;
         console.log(' text', text);
     }
 
@@ -56,13 +56,23 @@ export class SignUp extends React.Component {
                     <div className="login-actions">
                         <ul>
                             <li>
-                                <input type="text" id="input-signup-email" placeholder="email" onBlur={this.handleBlur}/>
+                                <input type="text"
+                                       id="input-signup-email"
+                                       placeholder="email"
+                                       onBlur={() => this.handleBlur('email')}/>
                             </li>
                             <li>
-                                <input type="password" placeholder="password"/>
+                                <input type="password"
+                                       id="input-signup-pass1"
+                                       placeholder="password"
+                                       onBlur={() => this.handleBlur('pass1')}/>
                             </li>
                             <li>
-                                <input type="password" name="password2" placeholder="confirm password"/>
+                                <input type="password"
+                                       id="input-signup-pass2"
+                                       name="password2"
+                                       laceholder="confirm password"
+                                       onBlur={() => this.handleBlur('pass2')}/>
                             </li>
                             <li>
                                 <button className="btn-orange" onClick={ this.signup }>Sign Up</button>
