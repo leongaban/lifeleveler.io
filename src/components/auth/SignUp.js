@@ -1,48 +1,14 @@
 import React from 'react'
-import firebase from 'firebase'
 import { not, equals } from 'ramda'
 import LifeLevelerBanner from '../common/LifeLevelerBanner'
 import InputError from '../common/InputError'
-import { validEmail, validPassword } from '../../factories/utility'
-
-// Firebase config (ToDo: extract into own file)
-const config = {
-    apiKey: "AIzaSyDMfCUnH-4fWti0uPUvBFwPlWCFZCdHDPw",
-    authDomain: "lifeleveler-65857.firebaseapp.com",
-    databaseURL: "https://lifeleveler-65857.firebaseio.com",
-    projectId: "lifeleveler-65857",
-    storageBucket: "lifeleveler-65857.appspot.com",
-    messagingSenderId: "886791378526"
-};
-firebase.initializeApp(config);
+import { validEmail, validPassword } from '../../util/validation'
 
 const createUser = (state) => {
     const email = state.email.text;
     const password = state.pass1.text;
 
     console.log('createUser', state);
-
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then((res) => {
-            console.log('res', res);
-            firebase.auth().onAuthStateChanged(function(user) {
-                if (user) {
-                    debugger;
-                    console.log('User is signed in.');
-                    console.log('user', user);
-                    // Route user back to Login view
-                    // And show message "Please verify your email then login below!"
-                } else {
-                    console.log('No user is signed in.');
-                }
-            });
-        })
-        .catch(function(error) {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log('errorCode', errorCode);
-            console.log('errorMessage', errorMessage);
-        });
 };
 
 export class SignUp extends React.Component {
@@ -60,7 +26,6 @@ export class SignUp extends React.Component {
 
     componentDidMount() {
         console.log('%cSignUp componentDidMount', 'background: #393939; color: #bada55');
-        console.log('firebase', firebase);
     }
 
 	signup() {
