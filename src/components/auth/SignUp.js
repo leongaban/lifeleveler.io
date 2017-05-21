@@ -4,12 +4,6 @@ import LifeLevelerBanner from '../common/LifeLevelerBanner'
 import InputError from '../common/InputError'
 import { validEmail, validPassword } from '../../util/validation'
 
-const createUser = (state) => {
-    const email = state.email.text;
-    const password = state.pass1.text;
-    console.log('createUser!', state);
-};
-
 export class SignUp extends React.Component {
 	constructor(props) {
         super(props)
@@ -51,7 +45,8 @@ export class SignUp extends React.Component {
         }
     }
 
-    handleSubmit() {
+    handleSubmit(e) {
+        e.preventDefault();
         console.log('%c handleSubmit', 'background: #393939; color: #bada55');
         const email = this.state.email.text;
         const pass1 = this.state.pass1.text;
@@ -67,9 +62,13 @@ export class SignUp extends React.Component {
             });
         };
 
+        const createUser = (email, password) => {
+            console.log('createUser and redirect to login with msg!');
+        };
+
         const checkPasswords = () => {
             if (validPassword(pass1) && validPassword(pass2)) {
-                equals(pass1, pass2) ? createUser(this.state) : setPass2Err(pass2);
+                equals(pass1, pass2) ? createUser(email, pass1) : setPass2Err(pass2);
             } else {
                 this.setState({ pass1: { error: true }});
             }
