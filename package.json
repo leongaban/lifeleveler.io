@@ -12,9 +12,7 @@
   },
   "scripts": {
     "dev": "webpack-dev-server --history-api-fallback",
-    "prod": "webpack -p",
-    "start": "react-scripts start",
-    "build": "react-scripts build"
+    "prod": "webpack -p"
   },
   "dependencies": {
     "axios": "^0.16.1",
@@ -42,7 +40,6 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "html-webpack-plugin": "^2.28.0",
     "node-sass": "^4.5.2",
-    "react-scripts": "^1.0.2",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.17.0",
     "webpack": "^2.5.1",

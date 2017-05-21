@@ -17,10 +17,7 @@
 		@include rounded(4px);
 	}
 
-	input.error {
-		color: $red;
-		border: 1px solid $red;
-	}
+	input.error { color: $red; border: 1px solid $red; }
 
 	button {
 		padding: 15px 20px; border: 1px solid $gray; width: 230px; font-size: em(24); color: #fff;
@@ -30,7 +27,9 @@
 	}
 }
 
-.forgot-pass {
+.small-auth-link {
+	margin-bottom: 20px;
+	padding-bottom: 20px;
 	text-align: center; color: white;
 	&:hover { color: darken(white, 10%); text-decoration: underline; }
 }

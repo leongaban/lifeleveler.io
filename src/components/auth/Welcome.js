@@ -26,7 +26,7 @@ const Welcome = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/forgot" className="forgot-pass">
+                            <Link to="/forgot" className="small-auth-link">
                                 <p>Forgot Password</p>
                             </Link>
                         </li>

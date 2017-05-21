@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { not, equals } from 'ramda'
 import LifeLevelerBanner from '../common/LifeLevelerBanner'
 import InputError from '../common/InputError'
@@ -129,6 +130,11 @@ export class SignUp extends React.Component {
                                 </li>
                                 <li>
                                     <button className="btn-orange">Sign Up</button>
+                                </li>
+                                <li>
+                                    <Link to="/" className="small-auth-link">
+                                        <p>Login</p>
+                                    </Link>
                                 </li>
                             </ul>
                         </form>

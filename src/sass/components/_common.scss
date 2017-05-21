@@ -1,6 +1,7 @@
 // common //////////////////////////////////////////////////
 .app-bg {
     position: absolute;
+    padding-bottom: 40px;
     width: 100%;
     height: 100%;
 	@include linear-gradient($purple, $violet);
