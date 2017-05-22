@@ -101,7 +101,7 @@ export class SignUp extends React.Component {
                                            placeholder="email"
                                            className={ inputClasser('email') }
                                            onChange={() => this.handleBlur('email') }
-                                           onBlur={() => this.handleBlur('email')}/>
+                                           onBlur={() => this.handleBlur('email')} />
                                 </li>
                                 <li>
                                     <InputError
@@ -114,7 +114,7 @@ export class SignUp extends React.Component {
                                            placeholder="password"
                                            className={ inputClasser('pass1') }
                                            onChange={() => this.handleBlur('pass1') }
-                                           onBlur={() => this.handleBlur('pass1')}/>
+                                           onBlur={() => this.handleBlur('pass1')} />
                                 </li>
                                 <li>
                                     <InputError
@@ -126,7 +126,7 @@ export class SignUp extends React.Component {
                                            id="input-signup-pass2"
                                            placeholder="confirm password"
                                            className={ inputClasser('pass2') }
-                                           onChange={() => this.handleBlur('pass2') }/>
+                                           onChange={() => this.handleBlur('pass2') } />
                                 </li>
                                 <li>
                                     <button className="btn-orange" type="submit">Sign Up</button>

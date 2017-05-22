@@ -37,9 +37,6 @@ export default class Welcome extends React.Component {
                     ? this.setState({ pass1: { error: true }})
                     : this.setState({ pass1: { error: false, text }});
                 break;
-            case 'pass2':
-                if (validPassword(text)) this.setState({ pass2: { error: false, text }});
-                break;
         }
     }
 
@@ -58,7 +55,6 @@ export default class Welcome extends React.Component {
             switch(type) {
                 case 'email': return this.state.email.error ? 'error' : ''; break;
                 case 'pass1': return this.state.pass1.error ? 'error' : ''; break;
-                case 'pass2': return this.state.pass2.error ? 'error' : ''; break;
             }
         };
 
@@ -72,17 +68,26 @@ export default class Welcome extends React.Component {
                             <ul>
                                 <li>
                                     <InputError on={ emailError } msg={ 'Please enter a valid email.' } />
+
                                     <input type="text"
                                            id="input-signup-email"
                                            placeholder="email"
                                            className={ inputClasser('email') }
                                            onChange={() => this.handleBlur('email') }
-                                           onBlur={() => this.handleBlur('email')}/>
+                                           onBlur={() => this.handleBlur('email')} />
                                 </li>
                                 <li>
+                                    <InputError
+                                        on={ pass1Error }
+                                        width={ 270 }
+                                        msg={ 'A combination of at least 7 numbers & letters' } />
+
                                     <input type="password"
                                            id="input-signup-pass1"
-                                           placeholder="password"/>
+                                           placeholder="password"
+                                           className={ inputClasser('pass1') }
+                                           onChange={() => this.handleBlur('pass1') }
+                                           onBlur={() => this.handleBlur('pass1')} />
                                 </li>
                                 <li>
                                     <button className="btn-orange" type="submit">Login</button>
