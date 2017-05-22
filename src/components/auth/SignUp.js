@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { not, equals } from 'ramda'
 import LifeLevelerBanner from '../common/LifeLevelerBanner'
 import InputError from '../common/InputError'
-import { validEmail, validPassword } from '../../util/validation'
+import { validEmail, validPassword, getInputText } from '../../util/validation'
 
 export class SignUp extends React.Component {
 	constructor(props) {
@@ -23,9 +23,7 @@ export class SignUp extends React.Component {
     }
 
     handleBlur(type) {
-        const input_type = `input-signup-${type}`;
-        const input = document.getElementById(input_type);
-        const text = input.value;
+        const text = getInputText(type);
 
         switch(type) {
             case 'email':

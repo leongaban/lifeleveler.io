@@ -5,3 +5,7 @@ export const validEmail = (email) => {
 
 export const validPassword = (password) => password.match(/^(?=\D*\d)(?=[^a-zA-Z]*[a-zA-Z])\S{7,}$/);
 
+export const getInputText = (type) => {
+	const input_type = `input-signup-${type}`;
+	return document.getElementById(input_type).value;
+};
