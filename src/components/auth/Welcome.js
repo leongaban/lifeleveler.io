@@ -11,11 +11,16 @@ export default class Welcome extends React.Component {
         };
 
         // this.handleBlur = this.handleBlur.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
         console.log('%cWelcome componentDidMount', 'background: #393939; color: #bada55');
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        console.log('%c handleSubmit', 'background: #393939; color: #bada55', this.state);
     }
 
     render() {
@@ -27,27 +32,29 @@ export default class Welcome extends React.Component {
                     <LifeLevelerBanner tagline={ tagline } />
                     <h1></h1>
                     <div className="login-actions">
-                        <ul>
-                            <li>
-                                <input type="text" name="email" placeholder="email"/>
-                            </li>
-                            <li>
-                                <input type="password" name="password" placeholder="password"/>
-                            </li>
-                            <li>
-                                <button className="btn-orange">Login</button>
-                            </li>
-                            <li>
-                                <Link to="/signup">
-                                    <button className="btn-gray">Sign Up</button>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/forgot" className="small-auth-link">
-                                    <p>Forgot Password</p>
-                                </Link>
-                            </li>
-                        </ul>
+                        <form onSubmit={this.handleSubmit}>
+                            <ul>
+                                // <li>
+                                    <input type="text" name="email" placeholder="email"/>
+                                </li>
+                                <li>
+                                    <input type="password" name="password" placeholder="password"/>
+                                </li>
+                                <li>
+                                    <button className="btn-orange" type="submit">Login</button>
+                                </li>
+                                <li>
+                                    <Link to="/signup">
+                                        <button className="btn-gray">Sign Up</button>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/forgot" className="small-auth-link">
+                                        <p>Forgot Password</p>
+                                    </Link>
+                                </li>
+                            </ul>
+                        </form>
                     </div>
                 </section>
             </div>

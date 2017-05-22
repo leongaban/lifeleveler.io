@@ -129,7 +129,7 @@ export class SignUp extends React.Component {
                                            className={inputClasser('pass2')}/>
                                 </li>
                                 <li>
-                                    <button className="btn-orange">Sign Up</button>
+                                    <button className="btn-orange" type="submit">Sign Up</button>
                                 </li>
                                 <li>
                                     <Link to="/" className="small-auth-link">
