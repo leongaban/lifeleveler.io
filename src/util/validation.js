@@ -9,3 +9,11 @@ export const getInputText = (type) => {
 	const input_type = `input-signup-${type}`;
 	return document.getElementById(input_type).value;
 };
+
+export const inputClasser = (type, state) => {
+    switch(type) {
+        case 'email': return state.email.error ? 'error' : ''; break;
+        case 'pass1': return state.pass1.error ? 'error' : ''; break;
+        case 'pass2': return state.pass2.error ? 'error' : ''; break;
+    }
+};

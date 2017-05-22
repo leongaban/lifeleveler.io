@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { not, equals } from 'ramda'
 import LifeLevelerBanner from '../common/LifeLevelerBanner'
 import InputError from '../common/InputError'
-import { validEmail, validPassword, getInputText } from '../../util/validation'
+import { validEmail, validPassword, getInputText, inputClasser } from '../../util/validation'
 
 export class SignUp extends React.Component {
 	constructor(props) {
@@ -74,15 +74,7 @@ export class SignUp extends React.Component {
     	const tagline = 'Create a new account to start on the journey of leveling up in life.';
         const emailError = this.state.email.error;
         const pass1Error = this.state.pass1.error;
-        const pass2Error = this.state.pass2.error; 
-
-        const inputClasser = (type) => {
-            switch(type) {
-                case 'email': return this.state.email.error ? 'error' : ''; break;
-                case 'pass1': return this.state.pass1.error ? 'error' : ''; break;
-                case 'pass2': return this.state.pass2.error ? 'error' : ''; break;
-            }
-        };
+        const pass2Error = this.state.pass2.error;
 
         return (
             <div className="app-bg">
@@ -97,7 +89,7 @@ export class SignUp extends React.Component {
                                     <input type="text"
                                            id="input-signup-email"
                                            placeholder="email"
-                                           className={ inputClasser('email') }
+                                           className={ inputClasser('email', this.state) }
                                            onChange={() => this.handleBlur('email') }
                                            onBlur={() => this.handleBlur('email')} />
                                 </li>
@@ -110,7 +102,7 @@ export class SignUp extends React.Component {
                                     <input type="password"
                                            id="input-signup-pass1"
                                            placeholder="password"
-                                           className={ inputClasser('pass1') }
+                                           className={ inputClasser('pass1', this.state) }
                                            onChange={() => this.handleBlur('pass1') }
                                            onBlur={() => this.handleBlur('pass1')} />
                                 </li>
@@ -123,7 +115,7 @@ export class SignUp extends React.Component {
                                     <input type="password"
                                            id="input-signup-pass2"
                                            placeholder="confirm password"
-                                           className={ inputClasser('pass2') }
+                                           className={ inputClasser('pass2', this.state) }
                                            onChange={() => this.handleBlur('pass2') } />
                                 </li>
                                 <li>
