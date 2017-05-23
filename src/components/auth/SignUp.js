@@ -5,7 +5,7 @@ import LifeLevelerBanner from '../common/LifeLevelerBanner'
 import InputError from '../common/InputError'
 import { validEmail, validPassword, getInputText, inputClasser } from '../../util/validation'
 
-export class SignUp extends React.Component {
+class SignUp extends React.Component {
 	constructor(props) {
         super(props)
         this.state = {
