@@ -33,3 +33,8 @@
 	text-align: center; color: white;
 	&:hover { color: darken(white, 10%); text-decoration: underline; }
 }
+
+.forgot-pass {
+	#input-signup-email { float: left; margin-right: 10px; padding-bottom: 13px; width: 160px; }
+	.btn-orange { float: left; width: 105px; }
+}

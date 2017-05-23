@@ -44,7 +44,7 @@ class SignUp extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        console.log('%c handleSubmit', 'background: #393939; color: #bada55');
+        // console.log('%c handleSubmit', 'background: #393939; color: #bada55');
         const email = this.state.email.text;
         const pass1 = this.state.pass1.text;
         const pass2 = this.state.pass2.text;

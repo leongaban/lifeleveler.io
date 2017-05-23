@@ -6,7 +6,6 @@ import LifeLevelerBanner from '../common/LifeLevelerBanner'
 import InputError from '../common/InputError'
 
 class ForgotPass extends React.Component {
-
     constructor(props) {
         super(props)
         this.state = {
@@ -14,7 +13,7 @@ class ForgotPass extends React.Component {
         };
 
         this.handleBlur = this.handleBlur.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     
     handleBlur() {
@@ -24,30 +23,42 @@ class ForgotPass extends React.Component {
             : this.setState({ email: { error: false, text }});
     }
 
+    handleSubmit(e) {
+        e.preventDefault();
+        console.log('%c handleSubmit', 'background: #393939; color: #bada55');
+        const email = this.state.email.text;
+
+        validEmail(email)
+            ? this.setState({ email: { error: true }})
+            : this.setState({ email: { error: true }});
+    }
+
     render() {
-        const tagline = 'Reset your password, submit the email you signed up with.';
+        const tagline = 'To reset your password, submit the email you signed up with.';
         const emailError = this.state.email.error;
 
         return (
             <div className="app-bg">
-                <section id="login-form">
+                <section id="login-form" className="forgot-pass">
                     <LifeLevelerBanner tagline={ tagline } />
                     <div className="login-actions">
-                        <InputError on={ emailError }
-                                    width={ 160 }
-                                    msg={ 'Please enter a valid email.' } />
-                                    
-                        <input type="text"
-                               id="input-signup-email"
-                               placeholder="email"
-                               className={ inputClasser('email', this.state) }
-                               onChange={() => this.handleBlur() }
-                               onBlur={() => this.handleBlur()} />
-                        <button className="btn-orange" type="submit">Submit</button>
+                        <form onSubmit={ this.handleSubmit }>
+                            <InputError on={ emailError }
+                                        width={ 160 }
+                                        msg={ 'Please enter a valid email.' } />
+
+                            <input type="text"
+                                   id="input-signup-email"
+                                   placeholder="email"
+                                   className={ inputClasser('email', this.state) }
+                                   onChange={() => this.handleBlur() }
+                                   onBlur={() => this.handleBlur()} />
+                            <button className="btn-orange" type="submit">Submit</button>
+                        </form>
                     </div>
                     <div className="fl mt20 w100">
                         <Link to="/" className="small-auth-link">
-                            <p>Login</p>
+                            <p>Back to login</p>
                         </Link>
                     </div>
                 </section>
