@@ -3,10 +3,11 @@
 .fl        { float: left; }
 .fr        { float: right; }
 .font12    { font-size: em(12); }
-.cursor    { cursor: pointer; }
+.cur       { cursor: pointer; }
 .mt2       { margin-top: 2px; }
 .mt8       { margin-top: 8px; }
 .mt20      { margin-top: 20px; }
+.m0auto    { margin: 0 auto; }
 .m05       { margin: 0 5px; }
 .mt0       { margin-top: 0; }
 .mt5       { margin-top: 5px; }
@@ -26,8 +27,10 @@
 .pad0      { padding: 0; }
 .auto      { width: auto; }
 .w100      { width: 100%; }
+.w55 	   { width: 55px; }
 .h100      { height: 100%; }
 .hauto     { height: auto; }
+.tcenter   { text-align: center; }
 .hide      { display: none !important; }
 .show      { display: block !important; }
 

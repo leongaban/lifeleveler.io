@@ -26,7 +26,7 @@ strong { font-weight: 600; }
 
 a {
     text-decoration: none;
-    &:hover { text-decoration: underline; }
+    &:hover { cursor: pointer; text-decoration: underline; }
 }
 
 canvas { display: block; vertical-align: bottom; }

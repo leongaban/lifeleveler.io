@@ -1,14 +1,14 @@
-// @font-face {
-//   font-family: 'fontello';
-//   src: url('./static/fonts/fontello.eot?51703222');
-//   src: url('./static/fonts/fontello.eot?51703222#iefix') format('embedded-opentype'),
-//        url('./static/fonts/fontello.woff2?51703222') format('woff2'),
-//        url('./static/fonts/fontello.woff?51703222') format('woff'),
-//        url('./static/fonts/fontello.ttf?51703222') format('truetype'),
-//        url('./static/fonts/fontello.svg?51703222#fontello') format('svg');
-//   font-weight: normal;
-//   font-style: normal;
-// }
+@font-face {
+  font-family: 'fontello';
+  src: url('https://lifeleveler.now.sh/fonts/fontello.eot?51703222');
+  src: url('https://lifeleveler.now.sh/fonts/fontello.eot?51703222#iefix') format('embedded-opentype'),
+       url('https://lifeleveler.now.sh/fonts/fontello.woff2?51703222') format('woff2'),
+       url('https://lifeleveler.now.sh/fonts/fontello.woff?51703222') format('woff'),
+       url('https://lifeleveler.now.sh/fonts/fontello.ttf?51703222') format('truetype'),
+       url('https://lifeleveler.now.sh/fonts/fontello.svg?51703222#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
 /* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
 /*

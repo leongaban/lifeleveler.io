@@ -13,10 +13,13 @@ $purple: #040d40;
 $violet: #842b59;
 
 // Brands
-// $facebook: #438acb;
-// $twitter:  #5cbde9;
+$facebook: #438acb;
+$twitter:  #5cbde9;
 
 // Elements
 $body: $violet;
 // $button: $blue;
 // $buttonHover: lighten($blue, 10%);
+
+.facebook { color: $facebook; }
+.twitter { color: $twitter; }

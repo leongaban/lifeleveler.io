@@ -92,6 +92,14 @@ export default class Welcome extends React.Component {
                                         <p>Forgot Password</p>
                                     </Link>
                                 </li>
+                                <li className="m0auto w55">
+                                    <a href="https://twitter.com/lifeleveler" target="_blank">
+                                        <div className="icon-twitter twitter fl"></div>
+                                    </a>
+                                    <a href="https://www.facebook.com/Life-Leveler-193725957772512/" target="_blank">
+                                        <div className="icon-facebook-squared facebook fl"></div>
+                                    </a>
+                                </li>
                             </ul>
                         </form>
                     </div>
