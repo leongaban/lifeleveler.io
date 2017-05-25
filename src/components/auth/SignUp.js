@@ -19,7 +19,7 @@ class SignUp extends React.Component {
     }
 
     componentDidMount() {
-        console.log('%cSignUp componentDidMount', 'background: #393939; color: #bada55');
+        console.log('%cSignUp componentDidMount', 'background: #393939; color: #bada55', this.props);
     }
 
     handleBlur(type) {
@@ -57,6 +57,7 @@ class SignUp extends React.Component {
 
         const createUser = (email, password) => {
             console.log('createUser and redirect to login with message!');
+            this.props.history.push('/signupsuccess');
         };
 
         const checkPasswords = () => {
@@ -78,7 +79,7 @@ class SignUp extends React.Component {
 
         return (
             <div className="app-bg">
-                <section id="login-form">
+                <section id="auth-section">
                     <LifeLevelerBanner tagline={ tagline } />
                     <div className="login-actions">
                         <form onSubmit={ this.handleSubmit }>

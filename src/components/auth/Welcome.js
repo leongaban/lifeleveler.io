@@ -50,7 +50,7 @@ export default class Welcome extends React.Component {
 
         return (
             <div className="app-bg">
-                <section id="login-form">
+                <section id="auth-section">
                     <LifeLevelerBanner tagline={ tagline } />
                     <h1></h1>
                     <div className="login-actions">

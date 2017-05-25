@@ -39,7 +39,7 @@ class ForgotPass extends React.Component {
 
         return (
             <div className="app-bg">
-                <section id="login-form" className="forgot-pass">
+                <section id="auth-section" className="forgot-pass">
                     <LifeLevelerBanner tagline={ tagline } />
                     <div className="login-actions">
                         <form onSubmit={ this.handleSubmit }>
