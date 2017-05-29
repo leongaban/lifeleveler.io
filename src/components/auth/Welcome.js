@@ -18,7 +18,7 @@ export default class Welcome extends React.Component {
     }
 
     componentDidMount() {
-        console.log('%cWelcome componentDidMount', 'background: #393939; color: #bada55');
+        // console.log('%cWelcome componentDidMount', 'background: #393939; color: #bada55');
     }
 
     handleBlur(type) {
@@ -39,8 +39,20 @@ export default class Welcome extends React.Component {
     }
 
     handleSubmit(e) {
+        // console.log('%c handleSubmit', 'background: #393939; color: #bada55', this.state);
         e.preventDefault();
-        console.log('%c handleSubmit', 'background: #393939; color: #bada55', this.state);
+        const email = this.state.email.text;
+        const pass1 = this.state.pass1.text;
+
+        const logUserIn = (state) => {
+            console.log('Success logUserIn...', state);
+        };
+
+        const checkPasswords = () => {
+            validPassword(pass1) ? logUserIn(this.state) : this.setState({ pass1: { error: true }});
+        };
+
+        validEmail(email) ? checkPasswords() : this.setState({ email: { error: true }});
     }
 
     render() {
@@ -52,7 +64,6 @@ export default class Welcome extends React.Component {
             <div className="app-bg">
                 <section id="auth-section">
                     <LifeLevelerBanner tagline={ tagline } />
-                    <h1></h1>
                     <div className="login-actions">
                         <form onSubmit={ this.handleSubmit }>
                             <ul>
