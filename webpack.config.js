@@ -53,6 +53,6 @@ module.exports = {
       disable: false,
       allChunks: true
     }),
-    new CopyWebpackPlugin([{ from: "static" }])
+    new CopyWebpackPlugin([{ from: 'static' }])
   ]
 };

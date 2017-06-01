@@ -1,3 +1,3 @@
-import { compose, join, juxt, head, not, tail, toUpper } from 'ramda';
-
-export const capitalize1st = compose(join(''), juxt([compose(toUpper, head), tail]));
+export const capitalizeFirst(string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
